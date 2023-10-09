@@ -1,18 +1,20 @@
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class Main {
     public static void main(String[] args) {
         int numeroFile = 10;
         for (int i = 0; i < numeroFile; i++) {
-            TextFile.createFile("file_" + i + ".txt");
+            File file = TextFile.createFile("file_" + i + ".txt");
+
         }
-        int numR = (int) (Math.random() * (10-1));
-        for (int i = 0; i < args.length; i++) {
-            TextFile.writeR(TextFile.createFile("file_" + i + ".txt"));
-        }
+
+
+
+        PrintQueue queue = new PrintQueue();
+
+
+
+
         /* for (int i = 0; i < numFile; i++) {
                 int rnd = (int) (Math.random() * (10-1));
            try {

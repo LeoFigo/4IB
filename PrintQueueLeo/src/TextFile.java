@@ -1,8 +1,4 @@
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Field;
 
 public class TextFile {
@@ -15,10 +11,42 @@ public class TextFile {
         }
         return file;
     }
-    static void writeR(File file) {
+    static void write(File file, String line) {
         try{
             BufferedWriter bw = new BufferedWriter(new FileWriter(file));
-            bw
+            bw.write(line);
+            bw.close();
+        } catch (IOException IOE) {
+            throw new RuntimeException(IOE);
+        }
+        return;
+    }
+    static String read(File file) {
+        String line = null, testo = "";
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(file));
+
+            while ((line = reader.readLine()) != null) {
+                testo = testo + line;
+            }
+        } catch (FileNotFoundException FNFE) {
+            throw new RuntimeException(FNFE);
+        } catch (IOException IOE) {
+            throw new RuntimeException(IOE);
+        }
+        return testo;
+    }
+    static void writeRandom (File file) {
+        int numR = (int) (Math.random() * (10-1));
+        try{
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            for (int i = 0; i <= numR; i++) {
+                bw.write(i);
+            }
+            bw.close();
+        } catch (IOException IOE) {
+            throw new RuntimeException(IOE);
         }
     }
 
