@@ -6,14 +6,16 @@ public class Main {
         int numeroFile = 10;
         for (int i = 0; i < numeroFile; i++) {
             File file = TextFile.createFile("file_" + i + ".txt");
-
+            TextFile.writeRandom(file);
         }
 
 
 
         PrintQueue queue = new PrintQueue();
 
-
+        for (int i = 0; i < ; i++) {
+            
+        }
 
 
         /* for (int i = 0; i < numFile; i++) {

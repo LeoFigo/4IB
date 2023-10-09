@@ -43,7 +43,7 @@ public class TextFile {
         try{
             BufferedWriter bw = new BufferedWriter(new FileWriter(file));
             for (int i = 0; i <= numR; i++) {
-                bw.write(i);
+                bw.write("riga " + i + "\n");
             }
             bw.close();
         } catch (IOException IOE) {
