@@ -2,6 +2,7 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) {
+        //creafile
         int numeroFile = 10;
         for (int i = 0; i < numeroFile; i++) {
             File file = TextFile.createFile("file_" + i + ".txt");
