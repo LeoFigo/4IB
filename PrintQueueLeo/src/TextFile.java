@@ -15,7 +15,7 @@ public class TextFile {
 
     static void write(File file, String line) {
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
             bw.write(line);
             bw.close();
         } catch (IOException IOE) {
@@ -53,5 +53,5 @@ public class TextFile {
             throw new RuntimeException(IOE);
         }
     }
-
+    //static void clear
 }
