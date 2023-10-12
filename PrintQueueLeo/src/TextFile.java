@@ -12,9 +12,10 @@ public class TextFile {
         }
         return file;
     }
+
     static void write(File file, String line) {
-        try{
-            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
             bw.write(line);
             bw.close();
         } catch (IOException IOE) {
@@ -22,6 +23,7 @@ public class TextFile {
         }
         return;
     }
+
     static String read(File file) {
         String line = null, testo = "";
         BufferedReader reader = null;
@@ -29,7 +31,7 @@ public class TextFile {
             reader = new BufferedReader(new FileReader(file));
 
             while ((line = reader.readLine()) != null) {
-                testo = testo + line;
+                testo = testo + line + "\n";
             }
         } catch (FileNotFoundException FNFE) {
             throw new RuntimeException(FNFE);
@@ -38,9 +40,10 @@ public class TextFile {
         }
         return testo;
     }
-    static void writeRandom (File file) {
-        int numR = (int) (Math.random() * (10-1));
-        try{
+
+    static void writeRandom(File file) {
+        int numR = (int) (Math.random() * (10 - 1));
+        try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(file));
             for (int i = 0; i <= numR; i++) {
                 bw.write("riga " + i + "\n");

@@ -2,6 +2,7 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+*.txt
 
 ### Eclipse ###
 .apt_generated
@@ -11,7 +12,7 @@ out/
 .settings
 .springBeans
 .sts4-cache
-.txt
+
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/

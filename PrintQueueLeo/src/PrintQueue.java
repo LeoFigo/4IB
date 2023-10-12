@@ -2,7 +2,8 @@ import java.io.File;
 
 public class PrintQueue {
     Node head;
-    public void queueFile (String content) {
+
+    public void queueFile(String content) {
         Node newN = new Node(content);
         if (head == null) {
             head = newN;
@@ -14,6 +15,7 @@ public class PrintQueue {
             last.next = newN;
         }
     }
+
     String printQueue() {
         Node current = head;
         String s = "";
@@ -23,9 +25,11 @@ public class PrintQueue {
         }
         return s;
     }
+
     static class Node {
         Node next;
         String string;
+
         Node(String string) {
             this.string = string;
             next = null;

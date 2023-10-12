@@ -2,36 +2,28 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) {
+
         //creafile
+        PrintQueue queue = new PrintQueue();
         int numeroFile = 10;
+        File output = new File("output.txt");
+
         for (int i = 0; i < numeroFile; i++) {
             File file = TextFile.createFile("file_" + i + ".txt");
             TextFile.writeRandom(file);
+
+            //queue.queueFile(TextFile.read(file));
         }
 
+        for (int i = 0; i < numeroFile; i++) {
+            File file = new File("file_" + i + ".txt");
+            queue.queueFile("INIZIO" + "\n" + TextFile.read(file)  + "FINE");
 
-
-        PrintQueue queue = new PrintQueue();
-
-        for (int i = 0; i < ; i++) {
-            
         }
+        System.out.println(queue.printQueue());
 
-
-        /* for (int i = 0; i < numFile; i++) {
-                int rnd = (int) (Math.random() * (10-1));
-           try {
-                BufferedWriter writer = new BufferedWriter(new FileWriter("file" + i + ".txt"));
-            
-            for (int j = 0; j <= rnd; j++) {
-                writer.write("linea numero " +j + "\n");
-            }
-            writer.close();
-        } catch (FileNotFoundException FNFE) {
-            throw new RuntimeException(FNFE);
-        } catch (IOException IOE) {
-            throw new RuntimeException(IOE);
-        } 
-        } */
+        /*TextFile.write(output, "******INIZIO******" + "\n");
+        TextFile.write(output, TextFile.read(file));
+        TextFile.write(output, ("******FINE*******" + "\n"));*/
     }
 }
