@@ -45,10 +45,10 @@ Questo metodo gestisce la scrittura di un numero casuale di parole in un file de
 ```java
 static int numRighe(File file)
 ```
-Questo metodo ritorna il numero di parole presenti in un file
+Questo metodo ritorna il numero di parole presenti in un file desiderato
 
 ## PrintQueue
-La classe `PrintQueue` gestisce una coda di Stringhe fatta di `Node`
+La classe `PrintQueue` gestisce una coda di `Node` contenenti una Stringa
 che compongono una lista:
 ```java
 public void queueFile (String content) {
@@ -113,7 +113,7 @@ public class Main {
 
         //creo dei file con dentro numero casuale di righe
         for (int i = 0; i < numeroFile; i++) {
-            File file = TextFile.createFile("file_" + i + ".txt");
+            File file = new File("file_" + i + ".txt");
             TextFile.writeRandom(file);
         }
 
@@ -130,5 +130,74 @@ public class Main {
 I file creati si chiamano `file_'numero'.txt` e i file di output di chiamano `Print.txt`
 e `PriorityPrint.txt`
 
+
 ### PrioPrintQueue
-TO_FIX
+#### Inserisco questa parte anche se non funziona come dovrebbe >:(
+(non capisco perché)
+
+```java
+public class PrioPrintQueue {
+  Node tail;
+  Node head;
+  public PrioPrintQueue() {
+    tail = head = null;
+  }
+  //add an element
+  public void add(int priority, String value) {
+    Node newN = new Node(value, priority);
+    if (head == null) {
+      head = newN;
+      tail = head;
+    } else {
+      Node current = tail;
+      Node save = tail;
+
+      boolean cond = true;
+      int i = 0;
+      while (cond) {
+        if ((current.priority > priority) || (current.next == null)) {
+          cond = false;
+          i++;
+        } else {
+          current = current.next;
+          i++;
+        }
+      }
+      if (current.priority > priority) {
+        //inserisco a sx
+        if (i == 1) {
+          newN.next = current;
+          tail = newN;
+        } else {
+          save.next = newN;
+          newN.next = current;
+        }
+      } else {
+        newN.next = current.next;
+        current.next = newN;
+      }
+    }
+  }
+  public String printQueuePrio() {
+    Node current = tail;
+    String s = "";
+    while (current != null) {
+      s = s + "*****" + current.priority + "*****" + "\n" + current.value + "******FINE******" + "\n";
+      current = current.next;
+    }
+    return s;
+  }
+  static class Node {
+    String value;
+    int priority;
+    Node next;
+
+    public Node(String value, int priority) {
+      this.priority = priority;
+      this.value = value;
+      next = null;
+    }
+  }
+}
+```
+

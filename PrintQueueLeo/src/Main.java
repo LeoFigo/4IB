@@ -13,7 +13,7 @@ public class Main {
 
         //creo dei file con dentro numero casuale di righe
         for (int i = 0; i < numeroFile; i++) {
-            File file = TextFile.createFile("file_" + i + ".txt");
+            File file = new File("file_" + i + ".txt");
             TextFile.writeRandom(file);
         }
 
@@ -34,7 +34,7 @@ public class Main {
         //metto in coda prioritaria i file
         for (int i = 0; i < numeroFile; i++) {
             File file = new File("file_" + i + ".txt");
-            prioQueue.add(TextFile.numRighe(file),"INIZIO" + "\n" + TextFile.read(file) + "FINE" + "\n");
+            prioQueue.add(TextFile.numRighe(file),TextFile.read(file));
         }
 
         //scrivo sul file outputPrio il contenuto della coda

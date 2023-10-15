@@ -2,16 +2,6 @@ import java.io.*;
 import java.lang.reflect.Field;
 
 public class TextFile {
-    //crea file
-    static File createFile(String nameFile) {
-        File file = new File(nameFile);
-        try {
-            file.createNewFile();
-        } catch (Exception e) {
-            //  TODO: handle exception
-        }
-        return file;
-    }
 
     static void write(File file, String line) {
         try {
@@ -21,7 +11,6 @@ public class TextFile {
         } catch (IOException IOE) {
             throw new RuntimeException(IOE);
         }
-        return;
     }
 
     static String read(File file) {
@@ -33,6 +22,7 @@ public class TextFile {
             while ((line = reader.readLine()) != null) {
                 testo = testo + line + "\n";
             }
+            reader.close();
         } catch (FileNotFoundException FNFE) {
             throw new RuntimeException(FNFE);
         } catch (IOException IOE) {
@@ -42,10 +32,13 @@ public class TextFile {
     }
 
     static void writeRandom(File file) {
-        int numR = (int) (Math.random() * (10 - 1));
+        int max = 10;
+        int min = 1;
+        int range = max - min + 1;
+        int rand = (int)(Math.random() * range) + min;
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(file));
-            for (int i = 0; i <= numR; i++) {
+            for (int i = 0; i <= rand; i++) {
                 bw.write("riga" + i + "\n");
             }
             bw.close();
@@ -71,4 +64,16 @@ public class TextFile {
         return i;
 
     }
+
+        /* OUTDATED
+    static File createFile(String nameFile) {
+        File file = new File(nameFile);
+        try {
+            file.createNewFile();
+        } catch (Exception e) {
+
+        }
+        return file;
+    }
+*/
 }
