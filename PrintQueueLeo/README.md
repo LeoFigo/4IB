@@ -71,6 +71,21 @@ il contenuto di tutti i Nodi percorsi.
     }
 }
 ```
+```java
+    public void queueFile (String content) {
+        Node newN = new Node(content);
+        if (head == null) {
+            head = newN;
+        } else {
+            last = head;
+        while (last.next != null) {
+            last = last.next;
+        }
+        last.next = newN;
+        }
+    }
+```
+
 ## Main
 la classe main contiene il metodo main che viene eseguito all'avvio del programma,
 e si occupa di creare le istanze degli oggetti `PrintQueue` e `PrioPrintQueue`,
