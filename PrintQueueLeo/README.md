@@ -31,19 +31,19 @@ dentro "PriorityPrint.txt" rispetta quello della coda.
 La classe `TextFile` viene utilizzata per interagire con un file, tutti i suoi metodi
 sono statici, e richiedono una classe File come parametro:
 ```java
-    static void write(File file, String line)
+static void write(File file, String line)
 ```
 Questo metodo scrive la stringa desiderata sul file desiderato
 ```java
-    static String read(File file)
+static String read(File file)
 ```
 Questo metodo legge il contenuto di un file desiderato e lo ritorna come `String`
 ```java
-    static void writeRandom(File file)
+static void writeRandom(File file)
 ```
 Questo metodo gestisce la scrittura di un numero casuale di parole in un file desiderato
 ```java
-    static int numRighe(File file)
+static int numRighe(File file)
 ```
 Questo metodo ritorna il numero di parole presenti in un file
 
@@ -51,18 +51,39 @@ Questo metodo ritorna il numero di parole presenti in un file
 La classe `PrintQueue` gestisce una coda di Stringhe fatta di `Node`
 che compongono una lista:
 ```java
-    public void queueFile (String content)
+public void queueFile (String content) {
+    Node newN = new Node(content);
+    if (head == null) {
+        head = newN;
+    } else {
+        last = head;
+        while (last.next != null) {
+            last = last.next;
+        }
+        last.next = newN;
+        }
+    }
+}
 ```
 Questo metodo mette in coda il contenuto di una stringa passata come parametro
 ```java
-    public String printQueue()
+String printQueue() {
+    Node current = head;
+    String s = "";
+    while (current != null) {
+        s = s + "\n" + "inizio" + "\n" + current.string + "fine";
+        current = current.next;
+    }
+    return s;
+}
 ```
 Questo metodo ripercorre la lista e ritorna una stringa contente
-il contenuto di tutti i Nodi percorsi.
+il contenuto di tutti i Nodi percorsi inseriti tra la parola
+*** inizio *** e la parola *** fine ***.
 
 ### Inoltre questa classe contiene una nested class `Node`
 ```java
-    static class Node {
+static class Node { 
     Node next;
     String string;
     Node(String string) {
@@ -70,20 +91,6 @@ il contenuto di tutti i Nodi percorsi.
         next = null;
     }
 }
-```
-```java
-    public void queueFile (String content) {
-        Node newN = new Node(content);
-        if (head == null) {
-            head = newN;
-        } else {
-            last = head;
-        while (last.next != null) {
-            last = last.next;
-        }
-        last.next = newN;
-        }
-    }
 ```
 
 ## Main
@@ -125,20 +132,3 @@ e `PriorityPrint.txt`
 
 ### PrioPrintQueue
 TO_FIX
-```java
-public class PrintQueue {
-    Node head;
-    Node last;
-    public void queueFile (String content) {
-        Node newN = new Node(content);
-        if (head == null) {
-            head = newN;
-        } else {
-            last = head;
-            while (last.next != null) {
-                last = last.next;
-            }
-            last.next = newN;
-        }
-    }
-```
