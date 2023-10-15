@@ -46,12 +46,29 @@ public class TextFile {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(file));
             for (int i = 0; i <= numR; i++) {
-                bw.write("riga " + i + "\n");
+                bw.write("riga" + i + "\n");
             }
             bw.close();
         } catch (IOException IOE) {
             throw new RuntimeException(IOE);
         }
     }
-    //static void clear
+
+    static int numRighe(File file) {
+        int i = 0;
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String line = "";
+            while((line = reader.readLine()) != null) {
+            i++;
+            }
+            reader.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return i;
+
+    }
 }
