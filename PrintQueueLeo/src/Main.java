@@ -24,7 +24,7 @@ public class Main {
         }
 
         //scrivo sul file output il contenuto della coda
-        File output = new File("output.txt");
+        File output = new File("Print.txt");
         TextFile.write(output, queue.printQueue());
 
 
@@ -38,7 +38,7 @@ public class Main {
         }
 
         //scrivo sul file outputPrio il contenuto della coda
-        File outputPrio = new File("outputPrio.txt");
+        File outputPrio = new File("PriorityPrint.txt");
         TextFile.write(outputPrio, prioQueue.printQueuePrio());
 
 
