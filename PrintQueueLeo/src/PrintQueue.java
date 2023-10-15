@@ -19,7 +19,7 @@ public class PrintQueue {
         Node current = head;
         String s = "";
         while (current != null) {
-            s += current.string;
+            s = s + "*****INIZIO*****" + "\n" + current.string + "******FINE******" + "\n";
             current = current.next;
         }
         return s;

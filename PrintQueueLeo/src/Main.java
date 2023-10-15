@@ -20,7 +20,7 @@ public class Main {
         //metto in coda non prioritaria i file
         for (int i = 0; i < numeroFile; i++) {
             File file = new File("file_" + i + ".txt");
-            queue.queueFile("INIZIO" + "\n" + TextFile.read(file) + "FINE" + "\n");
+            queue.queueFile(TextFile.read(file));
         }
 
         //scrivo sul file output il contenuto della coda
