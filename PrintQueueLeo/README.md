@@ -1,3 +1,32 @@
+# Consegna
+## facile:
+Simulare una coda di stampa per una collezione finita di file di testo 
+(creati in precedenza anche con un'utility in modo random):
+- i file vengono accodati inserendoli in un qualche ordine in una coda,
+classe "PrintQueue", ogni file è il contenuto di un nodo di tale coda, 
+classe nested "Node",
+- terminato l'inserimento in coda dei file viene prodotto un unico file di testo 
+"Print.txt" (che simula la stampa), il contenuto dei vari file viene contenuto 
+tra una riga iniziale '***** INIZIO ***** ' e una riga finale  ' ***** FINE *****', 
+l'ordine in cui viene presentato il contenuto dei vari file dentro "Print.txt" 
+rispetta quello della coda.
+
+## media:
+Simulare una coda di stampa con priorità per una collezione finita di file di testo
+(creati in precedenza anche con un'utility in modo random):
+- ad ogni file di testo viene assegnato un valore, denominato peso del file,
+che corrisponde al numero di parole in esso contenute,
+- i file vengono accodati inserendoli in una coda con priorità in ordine di
+peso non crescente, classe
+  "PriorityPrintQueue", ogni file ed il suo peso costituiscono il contenuto
+di un nodo di tale coda, classe
+  nested "Node",
+- terminato l'inserimento in coda dei file viene prodotto un unico
+file di testo "PriorityPrint.txt" (che simula la stampa), il contenuto dei
+vari file viene contenuto tra una riga iniziale '***** [peso file] *****' e una riga
+finale ' ***** FINE *****'. L'ordine in cui viene presentato il contenuto dei vari file
+dentro "PriorityPrint.txt" rispetta quello della coda.
+
 ## TextFile
 La classe `TextFile` viene utilizzata per interagire con un file, tutti i suoi metodi
 sono statici, e richiedono una classe File come parametro:
@@ -44,6 +73,10 @@ il contenuto di tutti i Nodi percorsi.
 ```
 ## Main
 la classe main contiene il metodo main che viene eseguito all'avvio del programma,
+e si occupa di creare le istanze degli oggetti `PrintQueue` e `PrioPrintQueue`,
+di chiamare i medoti statici della classe `TextFile` per creare e riempire casualmente
+i file, mettere i file nelle rispettive code e chiamare il metodo di scrittura sul file
+output
 ```java
 public class Main {
     public static void main(String[] args) {
@@ -72,6 +105,8 @@ public class Main {
         File output = new File("output.txt");
         TextFile.write(output, queue.printQueue());
 ```
+I file creati si chiamano `file_'numero'.txt` e i file di output di chiamano `Print.txt`
+e `PriorityPrint.txt`
 
 ### PrioPrintQueue
 TO_FIX
