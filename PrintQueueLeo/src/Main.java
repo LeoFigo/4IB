@@ -27,10 +27,6 @@ public class Main {
         File output = new File("Print.txt");
         TextFile.write(output, queue.printQueue());
 
-
-
-
-        //TO_FIX
         //metto in coda prioritaria i file
         for (int i = 0; i < numeroFile; i++) {
             File file = new File("file_" + i + ".txt");

@@ -9,7 +9,7 @@ public class PrioPrintQueue {
 
     //add an element
     public void add(int priority, String value) {
-        Node newN = new Node(value, priority);
+        /*Node newN = new Node(value, priority);
         if (head == null) {
             head = newN;
             tail = head;
@@ -42,11 +42,26 @@ public class PrioPrintQueue {
                 newN.next = current.next;
                 current.next = newN;
             }
+        }*/
+        Node newNode = new Node(value, priority);
+        if(head == null) {
+            head = newNode;
+            return;
         }
-
+        if (newNode.priority < head.priority) {
+            newNode.next = head;
+            head = newNode;
+        }
+        Node current = head;
+        while (current.next != null && current.priority < newNode.priority && current.next.priority < newNode.priority) {
+            current = current.next;
+        }
+        Node temp = current.next;
+        current.next = newNode;
+        newNode.next = temp;
     }
     public String printQueuePrio() {
-        Node current = tail;
+        Node current = head;
         String s = "";
         while (current != null) {
             s = s + "*****" + current.priority + "*****" + "\n" + current.value + "******FINE******" + "\n";
