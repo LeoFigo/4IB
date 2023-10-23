@@ -1,11 +1,11 @@
 public class Grafo {
     char[] alfabeto = {'A', 'B', 'C', 'D'};
-    int nodi[][];
+    private int nodi[][];
     public Grafo(int n) {
         nodi = new int[n][n];
     }
     //carico nodi non orientati
-    public void caricaNodo(int n[][]) {
+    public void caricaArco(int n[][]) {
         for (int i = 0; i < n.length; i++) {
             nodi[n[i][0]][n[i][1]] = 1;
         }
@@ -23,4 +23,12 @@ public class Grafo {
             System.out.println();
         }
     }
+    /*public Boolean checkIfValid(int n[][]) {
+        Boolean cond = true;
+        for (int i = 0; i < n.length; i++) {
+            for (int j = 0; j < n[i].length; j++) {
+                if(n[)
+            }
+        }
+    }*/
 }
