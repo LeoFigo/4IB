@@ -4,12 +4,18 @@ public class BTree {
     ArrayList<Integer> list = new ArrayList<Integer>();
 
     public void add(Integer e, int index) {
-        if(index >= list.size()) {
+
+        if (index >= list.size()) {
             for (int i = list.size(); i <= index; i++) {
                 list.add(null);
             }
         }
-        list.set(index, e);
+        if (list.get((index - 1) / 2) == null && index != 0) {
+            System.out.println("Il padre non esiste");
+            return;
+        } else {
+            list.set(index, e);
+        }
     }
 
     int search(Integer val) {
