@@ -1,0 +1,25 @@
+.Container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /*flex-flow: column wrap;*/
+    justify-content: space-around;
+    align-items: flex-start;
+    align-content: flex-start;
+    background-color: blueviolet;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+.Item{
+    background-color: orange;
+    padding: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+
+
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    border-radius: 25%;
+    
+}
