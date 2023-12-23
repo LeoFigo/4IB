@@ -13,14 +13,69 @@
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
+        <script>
+        let cond = false;
+        let cond2 = false;
+        function myFunction() {
+            if(!cond) {
+                document.getElementById('demo').innerHTML = Date();
+                cond = !cond;
+            } else { 
+                document.getElementById('demo').innerHTML = 'ShowMeHowToDoIt';
+                cond = !cond;
+            }
+        }
+        function myFunction2() {   
+            if(!cond2) {
+                //document.getElementById('demo').style.visibility;
+                document.getElementById('demo').style.display = "none";
+                cond2 = !cond2;
+            } else { 
+                document.getElementById('demo').style.display = "block";
+                cond2 = !cond2;
+            }
+        }
+        function myFunction1_1() {
+                document.getElementById('content2').style.display = "none";
+                document.getElementById('content1').style.display = "block";
+            }
+        function myFunction1_2() {
+                document.getElementById('content2').style.display = "block";
+                document.getElementById('content1').style.display = "none";
+        }
+        </script>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <div class = "Container">
-            <div class = "Item">1</div>
+            <!--<div class = "Item">1</div>
             <div class = "Item">2</div>
             <div class = "Item">3</div>
-        </div> 
+            <div class = "Item">4</div>-->
+            
+            <button class="Item" type="button" onclick="myFunction()">Change text</button>
+            <p id = 'demo'>ShowMeHowToDoIt</p>
+            <button class="Item" type="button" onclick="myFunction2()">hide/show text</button>
+            
+        </div>
+        <div class = "Container">
+            <!--<div class = "Item">1</div>
+            <div class = "Item">2</div>
+            <div class = "Item">3</div>
+            <div class = "Item">4</div>-->
+            
+            <button class="Item" type="button" onclick="myFunction1_1()">1</button>
+            <button class="Item" type="button" onclick="myFunction1_2()">2</button>
+        </div>
+        <div class = "Body">
+            <p id = "content1">
+                Questa è la prova di un menù
+            </p>
+            <p id = "content2">
+                Seconda facciata
+            </p>
+        </div>
         <script src="" async defer></script>
+         
     </body>
 </html>
