@@ -1,4 +1,7 @@
 .Container {
+    margin-left: -0.5em;
+    margin-top: -0.5em;
+    margin-right: -0.5em;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -12,13 +15,18 @@
 
     border-style: solid;
     border-color: black;
+    background-image:url('immagine1.jpg');
+    background-attachment: fixed;
+    background-size: 2560px 1440px;
+    background-repeat: repeat;
+
+
 }
 .Item{
     background-color: orange;
     padding: 30px;
     padding-left: 50px;
     padding-right: 50px;
-
 
     flex-grow: 0;
     flex-shrink: 0;
@@ -28,10 +36,21 @@
     border-style: solid;
     border-color: black;
     
-}
+    background-image: url(orange.jpg);
+    background-attachment: fixed;
+    background-size: 2560px 1440px;
+    background-repeat: repeat;    
+} 
 p {
     font-size: 25px;
 }
 #content2{
     display: none;
+}
+h1 {
+    color: white;
+    text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black, 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+}
+body{
+    background-color: gray;
 }
