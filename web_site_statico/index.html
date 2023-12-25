@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <--<![endif]-->
 <html>
     <head>
         <meta charset="utf-8">
@@ -14,56 +10,35 @@
     </head>
     <body>
         <script>
-        let cond = false;
-        let cond2 = false;
-        function myFunction() {
-            if(!cond) {
-                document.getElementById('demo').innerHTML = Date();
-                cond = !cond;
-            } else { 
-                document.getElementById('demo').innerHTML = 'ShowMeHowToDoIt';
-                cond = !cond;
-            }
-        }
-        function myFunction2() {   
-            if(!cond2) {
-                //document.getElementById('demo').style.visibility;
-                document.getElementById('demo').style.display = "none";
-                cond2 = !cond2;
-            } else { 
-                document.getElementById('demo').style.display = "block";
-                cond2 = !cond2;
-            }
-        }
-        function myFunction1_1() {
+            function myFunction1_1() {
                 document.getElementById('content2').style.display = "none";
                 document.getElementById('content1').style.display = "block";
             }
-        function myFunction1_2() {
+            function myFunction1_2() {
                 document.getElementById('content2').style.display = "block";
                 document.getElementById('content1').style.display = "none";
-        }
+            }
+            window.onload = getH;
+            window.onresize = getH;
+            function getH(){
+                divElement = document.querySelector(".Container");
+                elemHeight = divElement.offsetHeight; 
+                let r = document.querySelector(':root');
+                let rs = getComputedStyle(r);
+                r.style.setProperty('--h', elemHeight + 'px');
+                console.log(elemHeight);
+            }
+
         </script>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <!--
-        <div class = "Container">
-            
-            
-            <button class="Item" type="button" onclick="myFunction()">Change text</button>
-            <p id = 'demo'>ShowMeHowToDoIt</p>
-            <button class="Item" type="button" onclick="myFunction2()">hide/show text</button>
-            
-        </div>
-        -->
+      
+        <div class = "General">
         <div class = "Container">
             <button class="Item" id="i1" type="button" onclick="myFunction1_1()">1</button>
             <h1>MENU</h1>
             <button class="Item" id="i2" type="button" onclick="myFunction1_2()">2</button>
             
         </div>
-        <div class = "Body">
+        <div class = "Content">
             <p id = "content1">
                 Questa è la prova di un menù
             </p>
@@ -71,7 +46,6 @@
                 Seconda facciata
             </p>
         </div>
-        <script src="" async defer></script>
-         
+    </div>   
     </body>
 </html>

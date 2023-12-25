@@ -17,10 +17,10 @@
     border-color: black;
     background-image:url('immagine1.jpg');
     background-attachment: fixed;
-    background-size: 2560px 1440px;
+    background-size: 100VW calc(var(--h) + 1000px);
     background-repeat: repeat;
-
-
+    
+    
 }
 .Item{
     background-color: orange;
@@ -38,7 +38,7 @@
     
     background-image: url(orange.jpg);
     background-attachment: fixed;
-    background-size: 2560px 1440px;
+    background-size: 100VW calc(var(--h) + 1000px);
     background-repeat: repeat;    
 } 
 p {
@@ -53,4 +53,9 @@ h1 {
 }
 body{
     background-color: gray;
+}
+
+:root {
+    --h: 1;
+
 }
