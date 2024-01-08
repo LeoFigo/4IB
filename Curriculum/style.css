@@ -1,0 +1,47 @@
+.corpo {
+    display: flex;
+    flex-direction: column;
+    font-size: larger;
+    column-gap: 0px;
+    
+    /*background-color: blanchedalmond;*/
+}
+.item {
+    /*display: flex;
+    flex-direction: column;*/ 
+
+    
+    
+}
+.lato {
+    display: flex;
+    align-items: center;
+    
+    /*background-color: aqua;*/
+}
+article {
+    font-weight: bold;
+    color: black;
+    /*background-color: purple;*/
+    margin:0 -5px;
+}
+p {
+color: #444;
+font-weight: bold;
+margin: 1em;
+/*background-color: green;*/
+
+}   
+
+txt {
+    color: #444;
+    
+}
+ul {
+    margin: 0 0px;
+
+    /*background-color: red;*/
+}
+#CL {
+    margin-top: 1em;
+}
