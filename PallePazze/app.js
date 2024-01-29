@@ -35,6 +35,28 @@ let balls = [
             y: (reverse) ? (y * cos - x * sin) : (y * cos + x * sin)
         };
     }
+    
+    function mergeColor(color1, color2) {
+        const r1 = parseInt(color1.substring(4, color1.indexOf(',')));
+        const g1 = parseInt(color1.substring(color1.indexOf(',') + 2, color1.lastIndexOf(',')));
+        const b1 = parseInt(color1.substring(color1.lastIndexOf(',') + 2, color1.length - 1));
+        const r2 = parseInt(color2.substring(4, color2.indexOf(',')));
+        const g2 = parseInt(color2.substring(color2.indexOf(',') + 2, color2.lastIndexOf(',')));
+        const b2 = parseInt(color2.substring(color2.lastIndexOf(',') + 2, color2.length - 1));
+        const r = Math.floor((r1 + r2) / 2);
+        const g = Math.floor((g1 + g2) / 2);
+        const b = Math.floor((b1 + b2) / 2);
+        return `rgb(${r}, ${g}, ${b})`;
+    }
+    /*function blendColors(color1, color2) {
+        var blendedColor = {
+            r: Math.floor((color1.r + color2.r) / 2),
+            g: Math.floor((color1.g + color2.g) / 2),
+            b: Math.floor((color1.b + color2.b) / 2)
+        };
+    
+        return blendedColor;
+    }*/
 
     function updateBall(ball) {
         ball.x += ball.dx;
@@ -63,11 +85,19 @@ let balls = [
                 let vel0 = rotate(ball.dx, ball.dy, sin, cos, true);
                 let vel1 = rotate(otherBall.dx, otherBall.dy, sin, cos, true);
                 
+                let newColor = mergeColor(ball.color, otherBall.color);
+                ball.color = newColor;
+                otherBall.color = newColor;
+
                 // Collisione
                 let vxTotal = vel0.x - vel1.x;
                 vel0.x = ((ball.r - otherBall.r) * vel0.x + 2 * otherBall.r * vel1.x) / (ball.r + otherBall.r);
                 vel1.x = vxTotal + vel0.x;
-               
+                
+                
+                //PEZZI NELLE NIKE COSTANO PIU DELLE SHOESSSa PURUBUUUUUhbgudegiyhou
+                
+
                 // Ricambia direzione
                 let vel0F = rotate(vel0.x, vel0.y, sin, cos, false);
                 let vel1F = rotate(vel1.x, vel1.y, sin, cos, false);

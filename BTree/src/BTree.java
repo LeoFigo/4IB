@@ -107,4 +107,10 @@ public class BTree {
         }
         return s;
     }
+    int getSize() {
+        return list.size();
+    }
+    Integer getVal(int i) {
+        return list.get(i);
+    }
 }
