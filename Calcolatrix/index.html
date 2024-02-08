@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    
+</head>
+<!-- alt shift f -->
+
+<body>
+    <div class="container">
+    <h1>CALCOLATRICE</h1>
+    <div class="row">
+        <div class="col-md-3">
+            <input type="text" id ="display" class="form-control" disabled>
+        </div>
+    </div>
+    <br>
+    
+        <div class="row">
+            <div class="col-lg-3">
+                    <button type="button" class="btn btn-primary" onclick="writeD('7')">7</button>
+                    <button type="button" class="btn btn-primary" onclick="writeD('8')">8</button>
+                    <button type="button" class="btn btn-primary" onclick="writeD('9')">9</button>
+                    <button type="button" class="btn btn-primary" onclick="writeD('*')">x</button>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-3">
+                    <button type="button" class="btn btn-primary" onclick="writeD('4')">4</button>
+                    <button type="button" class="btn btn-primary" onclick="writeD('5')">5</button>
+                    <button type="button" class="btn btn-primary" onclick="writeD('6')">6</button>
+                    <button type="button" class="btn btn-primary" onclick="writeD('-')">-</button>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-3">
+                    <button type="button" class="btn btn-primary" onclick="writeD('1')">1</button>
+                    <button type="button" class="btn btn-primary" onclick="writeD('2')">2</button>
+                    <button type="button" class="btn btn-primary" onclick="writeD('3')">3</button>
+                    <button type="button" class="btn btn-primary" onclick="writeD('+')">+</button>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-3">
+                    <button type="button" class="btn btn-primary" onclick="writeD(',')">,</button>
+                    <button type="button" class="btn btn-primary" onclick="writeD('0')">0</button>
+                    <button type="button" class="btn btn-primary">C</button>
+                    <button type="button" class="btn btn-primary" onclick="resultD()">=</button>
+                
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-6">
+                
+                    <button type="button" class="btn btn-primary" onclick="writeD('/zx')">/</button>
+                    <button type="button" class="btn btn-primary">DEL</button>
+
+                
+            </div>
+        </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src ="app.js"></script>
+</body>
+
+</html>
