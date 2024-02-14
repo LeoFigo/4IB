@@ -7,13 +7,19 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    
+
+    <script src= 
+    "https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.js"
+            integrity= 
+    "sha512-BbVEDjbqdN3Eow8+empLMrJlxXRj5nEitiCAK5A1pUr66+jLVejo3PmjIaucRnjlB0P9R3rBUs3g5jXc8ti+fQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
 </head>
 <!-- alt shift f -->
 
 <body>
     <div class="container">
-    <h1>CALCOLATRICE</h1>
+    <h1>Leonardo D'alessio - CALCOLATRICE</h1>
     <div class="row">
         <div class="col-md-3">
             <input type="text" id ="display" class="form-control" disabled>
@@ -26,7 +32,7 @@
                     <button type="button" class="btn btn-primary" onclick="writeD('7')">7</button>
                     <button type="button" class="btn btn-primary" onclick="writeD('8')">8</button>
                     <button type="button" class="btn btn-primary" onclick="writeD('9')">9</button>
-                    <button type="button" class="btn btn-primary" onclick="writeD('*')">x</button>
+                    <button type="button" class="btn btn-primary" onclick="re('*')">x</button>
             </div>
         </div>
         <br>
@@ -35,7 +41,7 @@
                     <button type="button" class="btn btn-primary" onclick="writeD('4')">4</button>
                     <button type="button" class="btn btn-primary" onclick="writeD('5')">5</button>
                     <button type="button" class="btn btn-primary" onclick="writeD('6')">6</button>
-                    <button type="button" class="btn btn-primary" onclick="writeD('-')">-</button>
+                    <button type="button" class="btn btn-primary" onclick="re('-')">-</button>
             </div>
         </div>
         <br>
@@ -44,15 +50,15 @@
                     <button type="button" class="btn btn-primary" onclick="writeD('1')">1</button>
                     <button type="button" class="btn btn-primary" onclick="writeD('2')">2</button>
                     <button type="button" class="btn btn-primary" onclick="writeD('3')">3</button>
-                    <button type="button" class="btn btn-primary" onclick="writeD('+')">+</button>
+                    <button type="button" class="btn btn-primary" onclick="re('+')">+</button>
             </div>
         </div>
         <br>
         <div class="row">
             <div class="col-lg-3">
-                    <button type="button" class="btn btn-primary" onclick="writeD(',')">,</button>
+                    <button type="button" class="btn btn-primary" onclick="writeD('.')">,</button>
                     <button type="button" class="btn btn-primary" onclick="writeD('0')">0</button>
-                    <button type="button" class="btn btn-primary">C</button>
+                    <button type="button" class="btn btn-primary" onclick="cern()">C</button>
                     <button type="button" class="btn btn-primary" onclick="resultD()">=</button>
                 
             </div>
@@ -61,8 +67,8 @@
         <div class="row">
             <div class="col-lg-6">
                 
-                    <button type="button" class="btn btn-primary" onclick="writeD('/zx')">/</button>
-                    <button type="button" class="btn btn-primary">DEL</button>
+                    <button type="button" class="btn btn-primary" onclick="re('/')">/</button>
+                    <button type="button" class="btn btn-primary" onclick="clr()">DEL</button>
 
                 
             </div>
