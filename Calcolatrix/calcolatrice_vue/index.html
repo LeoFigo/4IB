@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calcolatrice Vue</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    
+  <style>
+    .calculator {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  </style>
+
+</head>
+<body>
+  
+
+  <div id="app" class="calculator">
+    <h1>Leonardo D'alessio - CALCOLATRICE</h1>
+    <div class="row">
+        <div class="col-md-3">
+            <input type="text" v-model="expression" readonly>
+        </div>
+    </div>
+    <br>
+    
+        <div class="row">
+            <div class="col-lg-3">
+                    <button type="button" class="btn btn-primary" @click="appendToExpression('7')">7</button>
+                    <button type="button" class="btn btn-primary" @click="appendToExpression('8')">8</button>
+                    <button type="button" class="btn btn-primary" @click="appendToExpression('9')">9</button>
+                    <button type="button" class="btn btn-primary" @click="appendToExpression('*')">x</button>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-3">
+                    <button type="button" class="btn btn-primary" @click="appendToExpression('4')">4</button>
+                    <button type="button" class="btn btn-primary" @click="appendToExpression('5')">5</button>
+                    <button type="button" class="btn btn-primary" @click="appendToExpression('6')">6</button>
+                    <button type="button" class="btn btn-primary" @click="appendToExpression('-')">-</button>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-3">
+                    <button type="button" class="btn btn-primary" @click="appendToExpression('1')">1</button>
+                    <button type="button" class="btn btn-primary" @click="appendToExpression('2')">2</button>
+                    <button type="button" class="btn btn-primary" @click="appendToExpression('3')">3</button>
+                    <button type="button" class="btn btn-primary" @click="appendToExpression('+')">+</button>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-3">
+                    <button type="button" class="btn btn-primary" @click="appendToExpression('.')">,</button>
+                    <button type="button" class="btn btn-primary" @click="appendToExpression('0')">0</button>
+                    <button type="button" class="btn btn-primary" @click="appendToExpression('/')">/</button>
+                    <button type="button" class="btn btn-primary" @click="calculate()">=</button>
+                
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-12">
+                <button type="button" class="btn btn-primary" @click="clearExpression()">DEL</button>
+            </div>
+        </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src ="app.js"></script>
+</body>
+</html>
