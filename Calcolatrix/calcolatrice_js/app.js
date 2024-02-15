@@ -20,6 +20,7 @@ function resultD() {
     }
 
     document.getElementById('display').value = res;
+
 }
 
 function re(char) {

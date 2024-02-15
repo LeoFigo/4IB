@@ -45,9 +45,7 @@ new Vue({
       for (let i = 1; i < tokens.length; i += 2) {
         const operator = tokens[i];
         const operand = tokens[i + 1];
-        if (isNaN(operand)) {
-          throw new Error('Invalid expression');
-        }
+        
         switch (operator) {
           case '+':
             result += operand;
