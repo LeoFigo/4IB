@@ -52,52 +52,20 @@ let balls = [
     function updateBall(ball) {
         ball.x += ball.dx;
         ball.y += ball.dy;
-    
+        
+        
+    }
+    function ballCollision() {
+        
+    }
+    function wallCollision() {
+        
         if(ball.x + ball.dx > canvas.width-ball.r || ball.x + ball.dx < ball.r) {
-            ball.dx = -ball.dx;
+            return true;
+        } else if(ball.y + ball.dy > canvas.height-ball.r || ball.y + ball.dy < ball.r) {
+            return true;
         }
-        if(ball.y + ball.dy > canvas.height-ball.r || ball.y + ball.dy < ball.r) {
-            ball.dy = -ball.dy;
-        }
-
-        for(let otherBall of balls) {
-            if(otherBall === ball) continue;
-            let dx = otherBall.x - ball.x;
-            let dy = otherBall.y - ball.y;
-            let distance = Math.sqrt(dx*dx + dy*dy);
-                
-            if(distance < ball.r + otherBall.r) {
-                
-                let angle = Math.atan2(dy, dx);
-                let sin = Math.sin(angle);
-                let cos = Math.cos(angle);
-                          
-                // Cambia direzione palle
-                let vel0 = rotate(ball.dx, ball.dy, sin, cos, true);
-                let vel1 = rotate(otherBall.dx, otherBall.dy, sin, cos, true);
-                
-                let newColor = mergeColor(ball.color, otherBall.color);
-                ball.color = newColor;
-                otherBall.color = newColor;
-
-                // Collisione
-                let vxTotal = vel0.x - vel1.x;
-                vel0.x = ((ball.r - otherBall.r) * vel0.x + 2 * otherBall.r * vel1.x) / (ball.r + otherBall.r);
-                vel1.x = vxTotal + vel0.x;
-                
-                
-
-                // Ricambia direzione
-                let vel0F = rotate(vel0.x, vel0.y, sin, cos, false);
-                let vel1F = rotate(vel1.x, vel1.y, sin, cos, false);
-                ball.dx = vel0F.x;
-                ball.dy = vel0F.y;
-                otherBall.dx = vel1F.x;
-                otherBall.dy = vel1F.y;
-
-            }
-
-        }
+        return false;
     }
     draw();
     
