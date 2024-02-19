@@ -15,7 +15,22 @@ function addProduct() {
         descrizione: prompt("enter descrizione"),
         prezzo: prompt("enter prezzo"),
     };
-    if(prodotto.nome != null && prodotto.codice != null && prodotto.descrizione != null && prodotto.prezzo != null) {
+
+    for (let i = 0; i < prodotti.length; i++) {
+        if(prodotti[i].codice == prodotto.codice || prodotto.codice === null) {
+            do {
+                alert("errore con il codice");
+                prodotto.codice = prompt("nuovo codice");
+            }while (prodotti[i].codice == prodotto.codice || prodotto.codice == null);
+        }
+    }
+    if(prodotto.prezzo < 0 || prodotto.prezzo == null ||  isNaN(prodotto.prezzo)) {
+        do {
+            alert("il prezzo deve essere un numero maggiore di 0");
+            prodotto.prezzo = prompt("nuovo prezzo");
+        }while(prodotto.prezzo < 0 || prodotto.prezzo == null || isNaN(prodotto.prezzo));
+    }
+    if(prodotto.nome != null && prodotto.descrizione != null) {
         prodotti.push(prodotto);
         showProducts();
     }
