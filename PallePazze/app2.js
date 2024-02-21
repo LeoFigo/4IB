@@ -35,38 +35,67 @@ let balls = [
             y: (reverse) ? (y * cos - x * sin) : (y * cos + x * sin)
         };
     }
-    
-    function mergeColor(color1, color2) {
-        const r1 = parseInt(color1.substring(4, color1.indexOf(',')));
-        const g1 = parseInt(color1.substring(color1.indexOf(',') + 2, color1.lastIndexOf(',')));
-        const b1 = parseInt(color1.substring(color1.lastIndexOf(',') + 2, color1.length - 1));
-        const r2 = parseInt(color2.substring(4, color2.indexOf(',')));
-        const g2 = parseInt(color2.substring(color2.indexOf(',') + 2, color2.lastIndexOf(',')));
-        const b2 = parseInt(color2.substring(color2.lastIndexOf(',') + 2, color2.length - 1));
-        const r = Math.floor((r1 + r2) / 2);
-        const g = Math.floor((g1 + g2) / 2);
-        const b = Math.floor((b1 + b2) / 2);
-        return `rgb(${r}, ${g}, ${b})`;
-    }  
 
     function updateBall(ball) {
-        ball.x += ball.dx;
-        ball.y += ball.dy;
-        
-        
-    }
-    function ballCollision() {
-        
-    }
-    function wallCollision() {
-        
-        if(ball.x + ball.dx > canvas.width-ball.r || ball.x + ball.dx < ball.r) {
-            return true;
-        } else if(ball.y + ball.dy > canvas.height-ball.r || ball.y + ball.dy < ball.r) {
-            return true;
+    ball.x += ball.dx;
+    ball.y += ball.dy;
+
+    checkCollisions(ball, true, true);
+    // Controlla sia collisioni con muri che con altre palle
+}
+
+function checkCollisions(ball, wallCollision, ballCollision) {
+    if (wallCollision) {
+        // Check collision with walls
+        if(ball.x + ball.dx > canvas.width - ball.r || ball.x + ball.dx < ball.r) {
+            ball.dx = -ball.dx;
         }
-        return false;
+        if(ball.y + ball.dy > canvas.height - ball.r || ball.y + ball.dy < ball.r) {
+            ball.dy = -ball.dy;
+        }
     }
+
+    if (ballCollision) {
+        // Check collision with other balls
+        for(let otherBall of balls) {
+            if(otherBall === ball) continue;
+            let dx = otherBall.x - ball.x;
+            let dy = otherBall.y - ball.y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+
+            if(distance < ball.r + otherBall.r) {
+                handleBallCollision(ball, otherBall);
+            }
+        }
+    }
+}
+
+function handleBallCollision(ball, otherBall) {
+    let dx = otherBall.x - ball.x;
+    let dy = otherBall.y - ball.y;
+    let angle = Math.atan2(dy, dx);
+    let sin = Math.sin(angle);
+    let cos = Math.cos(angle);
+    
+    // Cambia direzione palle
+    let vel0 = rotate(ball.dx, ball.dy, sin, cos, true);
+    let vel1 = rotate(otherBall.dx, otherBall.dy, sin, cos, true);
+    
+    // Collisione
+    let vxTotal = vel0.x - vel1.x;
+    vel0.x = ((ball.r - otherBall.r) * vel0.x + 2 * otherBall.r * vel1.x) / (ball.r + otherBall.r);
+    vel1.x = vxTotal + vel0.x;
+    
+    // Ricambia direzione
+    let vel0F = rotate(vel0.x, vel0.y, sin, cos, false);
+    let vel1F = rotate(vel1.x, vel1.y, sin, cos, false);
+    ball.dx = vel0F.x;
+    ball.dy = vel0F.y;
+    otherBall.dx = vel1F.x;
+    otherBall.dy = vel1F.y;
+}
     draw();
     
+
+
 
