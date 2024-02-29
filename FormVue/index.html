@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Elenco prodotti</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app" class="container">
+        <div class="item1">
+            <h1>Elenco prodotti</h1>
+
+            <div id="product-list">
+                <ul>
+                    <li v-for="product">{{ value }}</li>
+                </ul>
+            </div>
+
+            <div id="buttons">
+                <!-- Button: ordina lista -->
+                <button id="sort-list" @click="sortProducts">Ordina lista</button>
+            </div>
+        </div>
+        <div class="item2">
+            <form @submit.prevent="salva">
+                <h1>Dettagli prodotto</h1>
+                Categoria:<br>
+                <select v-model="categoria">
+                    <option value="Alimentari">Alimentari</option>
+                    <option value="Elettronica">Elettronica</option>
+                    <option value="Abbigliamento">Abbigliamento</option>
+                </select><br>
+
+                <input type="text" v-model="codice" placeholder="inserisci codice"><br>
+
+                <input type="text" v-model="nome" placeholder="inserisci nome"><br>
+
+                <input type="text" v-model="descrizione" placeholder="inserisci descrizione"><br>
+
+                <input type="text" v-model="prezzo" placeholder="inserisci prezzo"><br>
+
+                <p>Seleziona sconto:</p>
+
+                <input type="radio" v-model="sconto" value="0">
+                <label>0%</label><br>
+                <input type="radio" v-model="sconto" value="10">
+                <label>10%</label><br>
+                <input type="radio" v-model="sconto" value="20">
+                <label>20%</label><br>
+                <input type="radio" v-model="sconto" value="30">
+                <label>30%</label><br><br>
+
+                <input type="checkbox" v-model="magazzino">In magazzino?<br>
+                <button type="submit">Salva</button>
+                <button type="button" @click="annulla">Annulla</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
