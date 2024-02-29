@@ -20,6 +20,7 @@ function createObj() {
         //inMagazzino: inMagazzino
     };
 
+    
     prodotti.push(product);
     console.log("ciao")
     showProducts();
@@ -39,4 +40,12 @@ function showProducts() {
 
     }
 
+}
+
+function clearForm() {
+    document.getElementById('category').value = "";
+    document.getElementById('fcod').value = "";
+    document.getElementById('fname').value = "";
+    document.getElementById('fdesc').value = "";
+    document.getElementById('fprezzo').value = "";
 }

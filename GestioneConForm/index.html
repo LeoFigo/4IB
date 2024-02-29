@@ -11,13 +11,17 @@
 <body>
     <h1>Elenco prodotti</h1>
 
-    <div id="product-list"></div>
+    <button onclick="createObj()">invia</button>
+    <button onclick="clearForm()">clear</button>     
     <div class="container">
+        
+        <div id="product-list"></div>
         <br>
+        <div id="form">
         <form>
             <select id="category">
                 <option value="1">macchina</option>
-                <option value="2">luce rossa</option>
+                <option value="2">luce</option>
             </select><br>
             <input type="text" id="fcod" name="fname" placeholder="codice alfanumerico"><br>
 
@@ -39,8 +43,10 @@
             <label for="magazz"> in magazzino</label><br>
             
         </form>
-        <button onclick="createObj()">invia</button>
     </div>
+        
+    </div>
+    
     <script src="./script.js"></script>
 </body>
 
