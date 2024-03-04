@@ -9,9 +9,10 @@ h1 {
 }
 li:hover{
     cursor: pointer;
-    background-color: #73df52;
+ 
 }
 #product-list {
+    border-radius: 50px;
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;

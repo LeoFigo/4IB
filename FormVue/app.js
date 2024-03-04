@@ -7,7 +7,7 @@ const app = Vue.createApp({
             nome: '',
             descrizione: '',
             prezzo: '',
-            sconto: '',
+            sconto: '0',
             magazzino: false
         };
     },
@@ -46,6 +46,9 @@ const app = Vue.createApp({
             this.prezzo = '';
             this.sconto = '';
             this.magazzino = false;
+        },
+        deleteProduct(index) {
+            this.products.splice(index, 1);
         }
     }
 });
