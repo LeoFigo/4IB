@@ -1,0 +1,31 @@
+.container {
+    margin-top: 20px;
+}
+
+.btn {
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    font-size: 24px;
+}
+
+.btn-light {
+    background-color: #ffffff;
+    color: #333333;
+    border: 2px solid #333333;
+}
+
+.btn-light:hover {
+    background-color: #eeeeee;
+}
+
+.btn-light:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.btn-light:active {
+    background-color: #cccccc;
+    border-color: #333333;
+    color: #000000;
+}
