@@ -1,0 +1,31 @@
+.button {
+    padding: 10px 20px;
+    font-size: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: white;
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0);
+    transition: 0.5s;
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    
+    text-align: center;
+
+
+}
+
+.flex-container {
+    height: 100vh;
+}
+
+.button:hover {
+    color: white;
+    border: 2px solid red;
+
+}
