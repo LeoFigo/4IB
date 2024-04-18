@@ -5,7 +5,7 @@
     cursor: pointer;
     background-color: white;
     color: rgb(0, 0, 0);
-    border: 2px solid rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0); 
     transition: 0.5s;
     margin: 10px;
     text-align: center;

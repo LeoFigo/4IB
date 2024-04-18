@@ -65,7 +65,7 @@ function add(r, c) {
 
 function casual() {
     reset();
-    rand = true;
+    rand = true;    
 }
 
 function checkFirst() {

@@ -1,67 +1,32 @@
-card1 = 0;
-card2 = 0;
+let card1 = 0;
+let card2 = 0;
+const FACILE = 6;
+const MEDIO = 8;
+const DIFFICILE = 15;
 
 let memory = [];
 const buttonsContainer = document.getElementById('tabella');
 let buttons = [];
-let imgs = [];
+let cats = [];
 
-
-function start() {
-    loadGatti();
-    print();
-    hideMenu();
-    populateButtons();
-}
-function loadGatti() {
-    for (let i = 0; i < 6; i++) {
-        fetch("https://api.thecatapi.com/v1/images/search")
-        .then(response => response.json())
-        .then(images => {
-                imgs.push(images[0].url);        
-        })
-    }
-    
-
-}
-
-function compara() {
-    if (card1 == card2) {
-        return true;
-    } else {
-        return false;
-    }
-} function compara() {
-    if (card1 == card2) {
-        return true;
-    } else {
-        return false;
-    }
-}
-function hideMenu() {
-    document.getElementById('menu').style.display = 'none';
-}
 function populateButtons() {
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].innerText = memory[i];
         buttons[i].style.color = 'black';
-        buttons[i].style.background_image = `url("${imgs[i]}")`;
+        const catIndex = memory[i] - 1; 
+        buttons[i].style.backgroundImage = `url(${cats[catIndex]})`;
     }
     setTimeout(() => {
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].style.color = 'white';
         }
-    }, 100);
+    }, 2000);
 }
 
 function shuffleButtons() {
-
     for (let i = 0; i < buttons.length; i++) {
         const j = Math.floor(Math.random() * (i + 1));
         [memory[i], memory[j]] = [memory[j], memory[i]];
-    }
-
-    for (let i = 0; i < buttons.length; i++) {
         buttons[i].innerText = memory[i];
         buttons[i].style.color = 'white';
     }
@@ -71,7 +36,6 @@ function flipCard() {
     if (card1 == 0) {
         card1 = this.innerText;
         this.style.color = 'black';
-        this.style.backgroundImage = `url("${imgs[i]}")`;
     } else {
         card2 = this.innerText;
         this.style.color = 'black';
@@ -89,45 +53,74 @@ function flipCard() {
                 }
                 card1 = 0;
                 card2 = 0;
-            }, 200);
+            }, 1000);
         }
+    }
+}
+
+function compara() {
+    if (card1 == card2) {
+        return true;
+    } else {
+        return false;
     }
 }
 
 function level() {
     let difficulty = document.getElementById('level').value;
-
-    if (difficulty == 'easy') {
-        for (let i = 1; i < 7; i++) {
+    console.log(difficulty);
+    memory = []; // Clear the memory array
+    if (difficulty == 'facile') {
+        for (let i = 1; i <= FACILE; i++) {
             memory.push(i);
             memory.push(i);
         }
-        shuffleButtons();
-    } else if (difficulty == 'medium') {
-        for (let i = 1; i < 10; i++) {
+    } else if (difficulty == 'medio') {
+        for (let i = 0; i < MEDIO; i++) {
             memory.push(i);
             memory.push(i);
         }
-        shuffleButtons();
-    } else if (difficulty == 'hard') {
-        for (let i = 1; i < 20; i++) {
+    } else if (difficulty == 'difficile') {
+        for (let i = 0; i < DIFFICILE; i++) {
             memory.push(i);
             memory.push(i);
         }
-        shuffleButtons();
     }
-
 }
-function print() {
+
+async function loadImages() {
+    const uniqueNumbers = [...new Set(memory)];
+    const promises = uniqueNumbers.map(() =>
+        fetch('https://api.thecatapi.com/v1/images/search?limit=1')
+            .then(response => response.json())
+            .then(data => {
+                const imageUrl = data[0].url;
+                cats.push(imageUrl);
+            })
+    );
+    await Promise.all(promises);
+}
+
+
+async function print() {
     level();
+    await loadImages();
     for (let i = 0; i < memory.length; i++) {
         const button = document.createElement('button');
         buttons[i] = button;
-        button.classList.add('button'); //ingrandisci le carte
-        button.addEventListener('click', flipCard); //aggiungi eventlistener
-        buttonsContainer.appendChild(button); //aggiungi al div
+        button.classList.add('button');
+        button.addEventListener('click', flipCard);
+        buttonsContainer.appendChild(button);
     }
     shuffleButtons();
 }
 
+function hideMenu() {
+    document.getElementById('menu').style.display = 'none';
+}
 
+async function start() {
+    await print();
+    hideMenu();
+    populateButtons();
+}
