@@ -1,0 +1,7 @@
+{
+    "persone" : [
+     { "id": 1, "cognome" : "Favaro" , "nome" : "Tommaso" , "sesso" : "M", "data_nascita" : "08-03-2006", "dimensione_pisello" : "grande"},
+     { "id": 2, "cognome" : "Viale" , "nome" : "Edoardo" ,  "sesso" : "poco", "data_nascita" : "28-03-2006", "dimensione_pisello" : "medio" },
+     { "id": 3, "cognome" : "D'Alessio" , "nome" : "Leonardo" ,  "sesso" : "F", "data_nascita" : "20-05-2006", "dimensione_pisello" : "piccolo" }
+   ]
+ }  
