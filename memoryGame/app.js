@@ -31,13 +31,7 @@ function compara() {
     } else {
         return false;
     }
-} function compara() {
-    if (card1 == card2) {
-        return true;
-    } else {
-        return false;
-    }
-}
+}  eeddWD
 function hideMenu() {
     document.getElementById('menu').style.display = 'none';
 }

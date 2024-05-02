@@ -120,7 +120,7 @@ function hideMenu() {
 }
 
 async function start() {
-    await print();
+     print();
     hideMenu();
     populateButtons();
 }

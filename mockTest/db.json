@@ -1,7 +1,9 @@
 {
     "persone" : [
-     { "id": 1, "cognome" : "Favaro" , "nome" : "Tommaso" , "sesso" : "M", "data_nascita" : "08-03-2006", "dimensione_pisello" : "grande"},
-     { "id": 2, "cognome" : "Viale" , "nome" : "Edoardo" ,  "sesso" : "poco", "data_nascita" : "28-03-2006", "dimensione_pisello" : "medio" },
-     { "id": 3, "cognome" : "D'Alessio" , "nome" : "Leonardo" ,  "sesso" : "F", "data_nascita" : "20-05-2006", "dimensione_pisello" : "piccolo" }
+     { "id": 0, "cognome" : "Favaro" , "nome" : "Tommaso" , "sesso" : "M", "data_nascita" : "08-03-2006", "dimensione_pisello" : "grande"},
+     { "id": 1, "cognome" : "Viale" , "nome" : "Edoardo" ,  "sesso" : "M", "data_nascita" : "28-03-2006", "dimensione_pisello" : "medio" },
+     { "id": 2, "cognome" : "D'Alessio" , "nome" : "Leonardo" ,  "sesso" : "M", "data_nascita" : "20-05-2006", "dimensione_pisello" : "piccolo" },
+     { "id": 3, "cognome" : "Frattina" , "nome" : "Mattia" ,  "sesso" : "M", "data_nascita" : "cazzo ne so", "dimensione_pisello" : "???" },
+     { "id": 4, "cognome" : "Bellato" , "nome" : "Aurora" ,  "sesso" : "F", "data_nascita" : "4-07-2005", "dimensione_pisello" : "enorme😎😎😎" }
    ]
  }  
