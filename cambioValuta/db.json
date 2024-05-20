@@ -1,17 +1,19 @@
 {
     "valute" : [
         {
+            "id": 0,
+            "name": "EUR",
+            "simbolo": "€",
+            "fileName": "eu.jpg",
+            "tasso" : "1"
+        },
+        {
             "id": 1,
             "name": "USD",
             "simbolo": "$",
             "fileName": "us.jpg",
-            "tasso" : "0,92"
-        },
-        {
-            "id": 2,
-            "name": "EUR",
-            "simbolo": "€",
-            "fileName": "eu.jpg"
+            "tasso" : "1.09"
         }
+        
     ]
 }
