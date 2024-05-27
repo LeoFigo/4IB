@@ -1,0 +1,14 @@
+{
+  "name": "file-viewer",
+  "version": "1.0.0",
+  "description": "Nella cartella file-viewer si crei un progetto Node usando npm per un server web con le seguenti caratteristiche.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Leonardo Dalessio",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
